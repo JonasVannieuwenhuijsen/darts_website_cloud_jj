@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use  App\Http\Controllers\homeController;
+use  App\Http\Controllers\Controller;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +18,5 @@ use  App\Http\Controllers\homeController;
 
 
 Route::get('home', [homeController::class, 'test']);
+Route::get('testapi', [Controller::class, 'testApi'])->name('testApi');
+Route::get('checkout/{score}', [Controller::class, 'calcCheckout'])->name('checkout');

@@ -1,0 +1,77 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    background: rgb(22, 21, 21);
+    color: white;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+
+
+.navbar-container {
+    display: flex;
+    background: #FF4E4E;
+    padding: .4rem 3rem;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.topright_logo {
+    margin: 0;
+    text-transform: uppercase;
+    font-size: 3.5rem;
+}
+
+.navbar {
+    margin: 0;
+    padding: 0;
+    font-size: 1.9rem;
+    font-weight: bold;
+}
+
+.nav-ul {
+    padding: 0;
+    display: flex;
+}
+
+.nav-li {
+    list-style: none;
+    text-transform: uppercase;
+    margin: 0 3rem;
+    cursor: pointer;
+    transition: 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.nav-li:hover {
+    color: rgba(255, 255, 255, 0.575);
+}
+
+.bg-foto {
+    width: 100%;
+    background-size: cover;
+    position: absolute;
+    top: -20rem;
+    z-index: -1;
+    filter: brightness(30%);
+}
+
+/* --------------HOME VIEW ------------------------ */
+
+.home-container {
+    margin: 0 3rem;
+    width: 50%;
+}
+
+.welcome-h1 {
+    font-size: 4rem;
+    text-transform: uppercase;
+}
+
+.welcome-p {
+    color: #BDBDBD;
+    margin-top: 1rem;
+    font-size: 2.5rem;
+}

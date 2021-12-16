@@ -2,16 +2,31 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>BMI Calculator @yield('subtitle')</title>
-        <script type="text/javascript" src="functies.js"></script>
-        <link rel="stylesheet" href="/css/home.css">
+        <title>DARTSCLOUD.</title>
+        <!-- <script type="text/javascript" src="functies.js"></script>
+        <link rel="stylesheet" href="/css/home.css"> -->
+        @stack('styles')
+        @stack('scripts')
+        <link rel="stylesheet" href="/css/master.css">    
     </head>
     <body>
-        <h1>BMI Calculator</h1>
-        <h2>@yield('subtitle')</h2>
+        <div class="navbar-container">
+            <h1 class="topright_logo">Dartscloud.</h1>
+            <div class="navbar">
+                <ul class="nav-ul">
+                    <li class="nav-li">Home</li>
+                    <li class="nav-li">Play</li>
+                    <li class="nav-li">Player Info</li>
+                    <li class="nav-li">PDC Ranking</li>
+                </ul>
+            </div>
+        
+            
+
+        </div>
+        <img src= "{{ URL::to('/res/darts_bg.jpg') }}" alt="kut foto" class="bg-foto">
+        
         @yield('contents')
-        <div id="status" style="background-color: #ddd"></div>
-        <hr/>
-        <p><em>Een kennismaking met Laravel</em> en <code>Javascript</code></p>
+        
     </body>
 </html>
