@@ -7,17 +7,30 @@
         <link rel="stylesheet" href="/css/home.css"> -->
         @stack('styles')
         @stack('scripts')
-        <link rel="stylesheet" href="/css/master.css">    
+        <link rel="stylesheet" href="/css/master.css">  
+        <script src="/js/master.js" defer></script>
+        <link rel="icon" href="https://img.icons8.com/color/50/000000/goal--v1.png">
+          
     </head>
     <body>
         <div class="navbar-container">
             <h1 class="topright_logo">Dartscloud.</h1>
             <div class="navbar">
                 <ul class="nav-ul">
-                    <li class="nav-li">Home</li>
-                    <li class="nav-li">Play</li>
-                    <li class="nav-li">Player Info</li>
-                    <li class="nav-li">PDC Ranking</li>
+
+                    <li class="nav-li">
+                        <a class="nav-a" href="{{ route('home') }}">home</a>
+                    </li>
+                    <li class="nav-li">
+                        <a class="nav-a" href="{{ route('home') }}">play</a>
+                    </li>
+                    <li class="nav-li">
+                        <a class="nav-a" href="{{ route('home') }}">Player Info</a>
+                    </li>
+                    <li class="nav-li">
+                        <a class="nav-a" href="{{ route('pdcRanking') }}">PDC Ranking</a>    
+                    </li>
+                    
                 </ul>
             </div>
         

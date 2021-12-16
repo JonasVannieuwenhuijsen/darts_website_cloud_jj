@@ -17,6 +17,9 @@ use  App\Http\Controllers\Controller;
 
 
 
-Route::get('home', [homeController::class, 'test']);
-Route::get('testapi', [Controller::class, 'testApi'])->name('testApi');
-Route::get('checkout/{score}', [Controller::class, 'calcCheckout'])->name('checkout');
+Route::get('home', [homeController::class, 'test'])->name('home');
+Route::get('pdcRanking', [Controller::class, 'pdcRanking'])->name('pdcRanking');
+Route::get('play/{score}', [Controller::class, 'play'])->name("play");
+
+
+Route::get('/ranking/get-data', [Controller::class, 'getRanking']);

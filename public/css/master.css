@@ -45,24 +45,40 @@ body {
     transition: 0.3s cubic-bezier(0.23, 1, 0.320, 1);
 }
 
-.nav-li:hover {
+.nav-a {
+    text-decoration: none;
+    color: white;
+}
+
+.nav-a:hover {
     color: rgba(255, 255, 255, 0.575);
 }
 
 .bg-foto {
     width: 100%;
-    background-size: cover;
+    height: 100%;
+    /* background-size: cover; */
+    object-fit:cover;
     position: absolute;
-    top: -20rem;
+    top: 0;
     z-index: -1;
     filter: brightness(30%);
 }
 
-/* --------------HOME VIEW ------------------------ */
+/* ---------------------------------------------------HOME VIEW --------------------------------------------------------- */
 
 .home-container {
-    margin: 0 3rem;
+    padding: 0;
     width: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.left-container {
+    margin: 0;
+    /* background: rebeccapurple; */
+    width: 40%;
 }
 
 .welcome-h1 {
@@ -73,5 +89,59 @@ body {
 .welcome-p {
     color: #BDBDBD;
     margin-top: 1rem;
-    font-size: 2.5rem;
+    font-size: 2.2rem;
+}
+
+.twitter-container {
+    margin-top: 5rem;
+    border: 10px solid #FF4E4E;
+    background: #FF4E4E;
+    border-radius: 18px;
+    padding: 0;
+    box-shadow: 0px 16px 39px 2px rgba(0,0,0,0.82);
+}
+
+.twitter-h1 {
+    margin: .5rem 0 .5rem 1rem;
+}
+
+.right-contianer {
+    /* background-color: aqua; */
+    padding-top: 3rem;
+    margin-left: 3rem;
+}
+
+.home-photo {
+    /* margin: 3rem 4rem 3rem 4rem; */
+    border: 10px solid #FF4E4E;
+    width: 673px;
+    height: 740px;
+    object-fit: cover;
+    border-radius: 18px;
+    box-shadow: 0px 16px 39px 2px rgba(0,0,0,0.82);
+    object-position: 30% 30%;
+}
+/* --------------------------------------------------- PLAY ---------------------------------------------------------------- */
+/* --------------------------------------------------- PLAYER INFO --------------------------------------------------------- */
+/* --------------------------------------------------- PDC RANKING --------------------------------------------------------- */
+
+.list-container {
+    background: #FF4E4E;
+    border-radius: 18px;
+    padding: 1rem;
+    margin: 2rem;
+}
+
+.rank-ul {
+    display: flex;
+    justify-content: space-evenly;
+    text-decoration: none;
+}
+
+.rank-li {
+    text-decoration: none;
+}
+
+.rank-strong {
+    text-decoration: none;
 }
