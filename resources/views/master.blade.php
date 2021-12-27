@@ -23,7 +23,7 @@
                         <a class="nav-a" href="{{ route('home') }}">home</a>
                     </li>
                     <li class="nav-li">
-                        <a class="nav-a" href="{{ route('home') }}">play</a>
+                        <a class="nav-a" href="{{ route('play') }}">play</a>
                     </li>
                     <li class="nav-li">
                         <a class="nav-a" href="{{ route('home') }}">Player Info</a>

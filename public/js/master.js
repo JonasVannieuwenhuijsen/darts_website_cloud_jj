@@ -1,6 +1,110 @@
 // HOME -------------------------------------------------------------------------------------
 
 // PLAY -------------------------------------------------------------------------------------
+function checkForAmountOfNumbers(number) {
+    var value = document.getElementById("inputLable").value
+    if (value.length >= 3 || (value + number) > 180) {
+        return false;
+    } else {
+        return true;
+    }
+}
+function run1(){
+    if (checkForAmountOfNumbers(1)) {
+        document.getElementById("inputLable").value += "1";
+    }
+};
+function run2(){
+    if (checkForAmountOfNumbers(2)) {
+        document.getElementById("inputLable").value += "2";
+    }
+};
+function run3(){
+    if (checkForAmountOfNumbers(3)) {
+        document.getElementById("inputLable").value += "3";
+    }
+};
+function run4(){
+    if (checkForAmountOfNumbers(4)) {
+        document.getElementById("inputLable").value += "4";
+    }
+};
+function run5(){
+    if (checkForAmountOfNumbers(5)) {
+        document.getElementById("inputLable").value += "5";
+    }
+};
+function run6(){
+    if (checkForAmountOfNumbers(6)) {
+        document.getElementById("inputLable").value += "6";
+    }
+};
+function run7(){
+    if (checkForAmountOfNumbers(7)) {
+        document.getElementById("inputLable").value += "7";
+    }
+};
+function run8(){
+    if (checkForAmountOfNumbers(8)) {
+        document.getElementById("inputLable").value += "8";
+    }
+};
+function run9(){
+    if (checkForAmountOfNumbers(9)) {
+        document.getElementById("inputLable").value += "9";
+    }
+};
+function run0(){
+    if (checkForAmountOfNumbers(0)) {
+        document.getElementById("inputLable").value += "0";
+    }
+};
+function runDelete(){
+    var value = document.getElementById("inputLable").value;
+    var valueCleared = value.slice(0, -1);
+    document.getElementById("inputLable").value = valueCleared;
+};
+function runClear(){
+    document.getElementById("inputLable").value = "";
+};
+
+async function fetchCheckout(score) {
+    const response = await fetch('/getCheckout/' + score);
+    const checkout = await response.json();
+    return checkout;
+  }
+
+
+function submitScore(){
+    
+    var score = document.getElementById("inputLable").value;
+    var totalScore = document.getElementById("topPlayerScore").textContent;
+    document.getElementById("inputLable").value = "";
+
+    if (score > 180) {
+        alert("Score is to high. lower your score.");
+    } else {
+        if ((totalScore - score) === 0) {
+            document.getElementById("topPlayerScore").textContent = "WINNER"
+        } else {
+            document.getElementById("topPlayerScore").textContent = totalScore - score;
+        }
+    
+        var test = totalScore - score;
+        fetchCheckout(test).then(checkout => {
+            console.log(checkout);
+            document.getElementById("topCheckout").textContent = checkout["Checkout"]
+        })
+    }
+    
+}
+
+function restartGame(){
+    document.getElementById("topPlayerScore").textContent = "501";
+}
+
+
+
 
 // PLAYER INFO ------------------------------------------------------------------------------
 

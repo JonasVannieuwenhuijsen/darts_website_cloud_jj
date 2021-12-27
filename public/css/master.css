@@ -121,9 +121,147 @@ body {
     box-shadow: 0px 16px 39px 2px rgba(0,0,0,0.82);
     object-position: 30% 30%;
 }
-/* --------------------------------------------------- PLAY ---------------------------------------------------------------- */
-/* --------------------------------------------------- PLAYER INFO --------------------------------------------------------- */
-/* --------------------------------------------------- PDC RANKING --------------------------------------------------------- */
+/* --------------------------------------------------- PLAY VIEW ---------------------------------------------------------------- */
+.play-container {
+    height: 88vh;
+    display: flex;
+    align-items: center;
+}
+.play-calculator-container {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.play-calculator-container h1 {
+    font-size: 4rem;
+    text-transform: uppercase;
+}
+
+.play-input-container{
+    display: flex;
+    justify-content: center;
+    width: 40%;
+}
+.play-input-container input {
+    width: 100%;
+    height: 4rem;
+    background: #C4C4C4;
+    border: 4px solid white;
+    border-radius: 20px;
+    padding: 0 1rem;
+    font-size: 2rem;
+    font-weight: 500;
+
+}
+
+.play-input-container input::-webkit-outer-spin-button,
+.play-input-container input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.play-input-container input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.play-numbers-container{
+    width: 34%;
+}
+
+.play-numbers-container button {
+    background: #FF4E4E;
+    border: 4px solid white;
+    color: white;
+    border-radius: 20px;
+    font-size: 2.3rem;
+    font-weight: 600;
+    width: 80px;
+    height: 80px;
+    transition: 0.3s;
+}
+
+.play-numbers-container button:hover {
+    background: #ffd5d5;
+    color: #FF4E4E;
+}
+
+
+
+.play-number-spacing{
+    display: flex;
+    justify-content: space-between;
+    margin: 2rem 0;
+}
+.play-firstrow-numbers{
+}
+
+.play-secondrow-numbers{
+
+}
+
+.play-thirdrow-numbers{
+
+}
+.enterBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.play-scoredisplay-container {
+    display: flex;
+    justify-content: center;
+    width: 50%;
+}
+
+.main-score-display-container{
+    width: 60%;
+    border: 4px solid white;
+    background: #FF4E4E;
+    border-radius: 18px;
+    
+}
+
+.PlayerScoreDisplay-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 1rem 2rem 1rem;
+}
+
+.player-score {
+    font-size: 8rem;
+    font-weight: 600;
+}
+
+.playerdata-container {
+    width: 70%;
+}
+
+.playerData {
+    display: flex;
+    justify-content: space-between;
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+
+.playerData span:last-child{
+    color: #290000ad;
+}
+
+.middelLine {
+    width: 100%;
+    height: 5px;
+    background: white;
+}
+
+
+/* --------------------------------------------------- PLAYER INFO VIEW --------------------------------------------------------- */
+/* --------------------------------------------------- PDC RANKING VIEW --------------------------------------------------------- */
 .ranking-container {
     display: flex;
     flex-direction: column;

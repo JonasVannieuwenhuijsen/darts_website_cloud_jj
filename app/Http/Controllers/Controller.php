@@ -15,26 +15,12 @@ class Controller extends BaseController
 
     public function pdcRanking()
     {
-        // $client = new Client();
-        // $url = "http://api.sportradar.us/darts/trial/v2/en/rankings.json?api_key=zwkgpb5hyw7xseb8mpggaxdf";
-
-        // $response = $client->request('GET', $url, [
-        //     'verify'  => false,
-        // ]);
-
-        // $responseBody = json_decode($response->getBody(), true);
-
-        // $topTree = array();
-        // for ($i=0; $i < 3; $i++) { 
-        //     $player = $responseBody["rankings"]["1"]["competitor_rankings"][$i]["competitor"]["name"];
-        //     array_push($topTree, $player);
-        // }
-
-        // dd($topTree);
-
-        // dd($responseBody["rankings"]["1"]["competitor_rankings"]["0"]["competitor"]["name"]);
-
         return view('pdcRanking');
+    }
+
+    public function play()
+    {
+        return view('play');
     }
 
 
@@ -64,7 +50,7 @@ class Controller extends BaseController
         return $ranking;
     }
 
-    public function play($score)
+    public function getCheckout($score)
     {
         $client = new Client();
         $url = "https://checkoutservicenodejs.herokuapp.com/checkout/" . $score;
@@ -76,9 +62,9 @@ class Controller extends BaseController
         $responseBody = json_decode($response->getBody(), true);
         //dd($topTree);
 
-        dd($responseBody);
+        // dd($responseBody);
 
-        // return view('apitest')->with('topTree', $topTree);
+        return $responseBody;
     }
 
 }

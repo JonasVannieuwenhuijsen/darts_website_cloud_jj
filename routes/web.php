@@ -19,7 +19,9 @@ use  App\Http\Controllers\Controller;
 
 Route::get('home', [homeController::class, 'test'])->name('home');
 Route::get('pdcRanking', [Controller::class, 'pdcRanking'])->name('pdcRanking');
-Route::get('play/{score}', [Controller::class, 'play'])->name("play");
+Route::get('play', [Controller::class, 'play'])->name("play");
 
-
+// api for returning the chekout
+Route::get('getCheckout/{score}', [Controller::class, 'getCheckout'])->name("getCheckout");
+// api call for returning the ranking order of merit
 Route::get('/ranking/get-data', [Controller::class, 'getRanking']);
