@@ -20,7 +20,7 @@
                 <tbody id="list-tbody" class="list-tbody">
                     <!-- ADD DATA HERE -->
                     <!-- dummy data -->
-                    <tr>
+                    <!-- <tr>
                         <th>1</th>
                         <th>jeroen van caak</th>
                         <th>$ 123.254.2</th>
@@ -69,7 +69,7 @@
                         <th>1</th>
                         <th>jeroen van caak</th>
                         <th>$ 123.254.2</th>
-                    </tr>
+                    </tr> -->
                     <!-- DUMMY DATA -->
                 </tbody>
             </table>

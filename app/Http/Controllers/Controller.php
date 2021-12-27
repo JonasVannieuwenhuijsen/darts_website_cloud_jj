@@ -42,8 +42,9 @@ class Controller extends BaseController
     // link: https://stackoverflow.com/questions/67540932/laravel-passing-a-variable-to-js-file-from-a-controller
     public function getRanking()
     {
+        $dartApiKey = "4jx6q28jw7xpnkcfhuer4fxn";
         $client = new Client();
-        $url = "http://api.sportradar.us/darts/trial/v2/en/rankings.json?api_key=zwkgpb5hyw7xseb8mpggaxdf";
+        $url = "http://api.sportradar.us/darts/trial/v2/en/rankings.json?api_key=".$dartApiKey;
 
         $response = $client->request('GET', $url, [
             'verify'  => false,
