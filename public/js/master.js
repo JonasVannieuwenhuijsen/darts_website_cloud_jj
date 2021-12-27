@@ -6,7 +6,16 @@
 
 // PDC RANKIKNG -----------------------------------------------------------------------------
 
+// function to fromat number woth commas
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
 
+function switchNamePlaces(x) {
+    var nameArr = x.split(', ');
+    var newName = nameArr[1] + " " + nameArr[0];
+    return newName;
+}
 
 async function fetchRanking() {
     const response = await fetch('/ranking/get-data');
@@ -14,26 +23,42 @@ async function fetchRanking() {
     return ranking;
   }
 
-  fetchRanking().then(ranking => {
-        console.log(ranking[0])
-        var list = document.createElement("ul");
-        list.classList.add("rank-ul");
-        for (let i in ranking) {
-            // LIST ITEM
-            let item = document.createElement("li");
-            item.classList.add("rank-li")
-            list.appendChild(item);
+//   fetchRanking().then(ranking => {
+//         console.log(numberWithCommas(ranking[0]['price_money']));
+//         console.log(ranking[0]['player']);
+        
+
+//         var tbody = document.getElementById("list-tbody");
+//         for (let i in ranking) {
+//             // LIST ITEM
+//             let item = document.createElement("tr");
+//             item.classList.add("rank-tr")
+//             tbody.appendChild(item);
             
-            // SUB-SECTION TITLE
-            let head = document.createElement("strong");
-            head.classList.add("rank-strong")
-            head.innerHTML = ranking[i];
-            item.appendChild(head);
-        }
+//             // SUB-SECTION Number
+//             let nr = document.createElement("td");
+//             nr.classList.add("rank-td")
+//             nr.innerHTML = i;
+//             item.appendChild(nr);
+
+//             // SUB-SECTION PLAYER
+//             let player = document.createElement("td");
+//             player.classList.add("rank-td")
+//             player.innerHTML = switchNamePlaces(ranking[i]['player']);
+//             item.appendChild(player)
+
+//             // SUB-SECTION PRICE MONEY
+//             let prMoney = document.createElement("td");
+//             prMoney.classList.add("rank-td")
+//             prMoney.innerHTML = "£ " + numberWithCommas(ranking[i]['price_money']);
+//             item.appendChild(prMoney)
+
+//             // (B3) APPEND LIST TO CONTAINER
+//             tbody.appendChild(item);
+//         }
     
-        // (B3) APPEND LIST TO CONTAINER
-        document.getElementById("listContainer").appendChild(list);
-    });
+        
+//     });
 
 
 

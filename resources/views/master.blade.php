@@ -10,7 +10,8 @@
         <link rel="stylesheet" href="/css/master.css">  
         <script src="/js/master.js" defer></script>
         <link rel="icon" href="https://img.icons8.com/color/50/000000/goal--v1.png">
-          
+        <link rel="stylesheet" href="https://unpkg.com/simplebar@latest/dist/simplebar.css"/>
+        <script src="https://unpkg.com/simplebar@latest/dist/simplebar.min.js"></script>
     </head>
     <body>
         <div class="navbar-container">

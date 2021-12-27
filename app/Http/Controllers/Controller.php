@@ -15,26 +15,26 @@ class Controller extends BaseController
 
     public function pdcRanking()
     {
-        $client = new Client();
-        $url = "http://api.sportradar.us/darts/trial/v2/en/rankings.json?api_key=zwkgpb5hyw7xseb8mpggaxdf";
+        // $client = new Client();
+        // $url = "http://api.sportradar.us/darts/trial/v2/en/rankings.json?api_key=zwkgpb5hyw7xseb8mpggaxdf";
 
-        $response = $client->request('GET', $url, [
-            'verify'  => false,
-        ]);
+        // $response = $client->request('GET', $url, [
+        //     'verify'  => false,
+        // ]);
 
-        $responseBody = json_decode($response->getBody(), true);
+        // $responseBody = json_decode($response->getBody(), true);
 
-        $topTree = array();
-        for ($i=0; $i < 3; $i++) { 
-            $player = $responseBody["rankings"]["1"]["competitor_rankings"][$i]["competitor"]["name"];
-            array_push($topTree, $player);
-        }
+        // $topTree = array();
+        // for ($i=0; $i < 3; $i++) { 
+        //     $player = $responseBody["rankings"]["1"]["competitor_rankings"][$i]["competitor"]["name"];
+        //     array_push($topTree, $player);
+        // }
 
         // dd($topTree);
 
         // dd($responseBody["rankings"]["1"]["competitor_rankings"]["0"]["competitor"]["name"]);
 
-        return view('pdcRanking')->with('topTree', $topTree);
+        return view('pdcRanking');
     }
 
 
@@ -51,12 +51,16 @@ class Controller extends BaseController
 
         $responseBody = json_decode($response->getBody(), true);
 
-        $topTree = array();
-        for ($i=0; $i < 3; $i++) { 
+        $ranking = array();
+        for ($i=0; $i < 183; $i++) { 
             $player = $responseBody["rankings"]["1"]["competitor_rankings"][$i]["competitor"]["name"];
-            array_push($topTree, $player);
+            $prizeMoney = $responseBody["rankings"]["1"]["competitor_rankings"][$i]["prize_money"];
+            
+            $rankObj = array('player' => $player, 'price_money' => $prizeMoney);
+            
+            array_push($ranking, $rankObj);
         }
-        return $topTree;
+        return $ranking;
     }
 
     public function play($score)

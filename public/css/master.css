@@ -124,24 +124,117 @@ body {
 /* --------------------------------------------------- PLAY ---------------------------------------------------------------- */
 /* --------------------------------------------------- PLAYER INFO --------------------------------------------------------- */
 /* --------------------------------------------------- PDC RANKING --------------------------------------------------------- */
+.ranking-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-.list-container {
-    background: #FF4E4E;
-    border-radius: 18px;
-    padding: 1rem;
+.ranking-container h1 {
+    font-size: 4rem;
+    text-transform: uppercase;
+}
+
+.ranking-container p {
+    color: #BDBDBD;
+    margin-top: 1rem;
+    font-size: 2.2rem;
+}
+
+.ranking-text-container {
+    width: 50%;
+
+}
+
+.table-container {
     margin: 2rem;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    width: 50%;
+    border: 1px solid greenyellow;
+    border-radius: 18px;
+    border: 5px solid white;
+    overflow: hidden;
+
+
+}
+.ranking-table {
+    background: #FF4E4E;
+    display: flex;
+    justify-content: center;
+    /* border-radius: 18px; */
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 500px;
+    width: 100%;
+}
+
+.ranking-table::-webkit-scrollbar {
+    width:10px;
+    border: 3px solid white;
+    background: #ff5d5d;
+}
+.ranking-table::-webkit-scrollbar-track {
+
+}
+.ranking-table::-webkit-scrollbar-thumb {
+    border-radius:5px;
+    background: #0000003a; 
+    border: 2px solid white;
+}
+
+.ranking-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.ranking-table th, td {
+    padding: 1rem 3rem;
+}
+
+
+.ranking-table td {
+    color: #290000bd;
+}
+
+.ranking-table th {
+    border-bottom:  2px solid white;
+    font-size: 2rem;
+    text-align: left;
+}
+.list-tbody tr:nth-child(odd){
+    background: #ff5d5d;
+}
+
+.tableheader-container {
+    display: flex;
+    width: auto;
+    justify-content: space-evenly;
+}
+
+.line {
+    width: 100%;
+    height: 5px;
+    background: #ffffff;
+    z-index: 2;
 }
 
 .rank-ul {
     display: flex;
+    flex-direction: column;
     justify-content: space-evenly;
     text-decoration: none;
 }
 
 .rank-li {
+    width: auto;
     text-decoration: none;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .rank-strong {
+    margin: 1rem;
     text-decoration: none;
 }

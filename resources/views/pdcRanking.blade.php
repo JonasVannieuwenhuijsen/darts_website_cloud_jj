@@ -1,28 +1,81 @@
 @extends('master')
 @section('contents')
-<style>
 
-
-</style>
-
-
-
-
-<div class="container-fluid mb-5" style="margin-bottom: 150px !important">
-    <div id="listContainer" class="list-container">
+<div class="ranking-container">
+    <div class="ranking-text-container">
+        <h1>PDC Order of merit</h1>
+        <p>The main PDC Order of Merit is based on prize money won over a two-year period by players in ranking tournaments.</p>
     </div>
-    <div class="row mr-4">
 
-        <p>Number #1:</p>
-        {{ $topTree[0] }}
-
-        <p>Number #2:</p>
-        {{ $topTree[1] }}
-
-        <p>Number #3:</p>
-        {{ $topTree[2] }}
-
+    <div class="table-container">
+        <div class="ranking-table">
+            <table id="list-table">
+                <thead>
+                    <tr>
+                        <th>Position</th>
+                        <th>Name</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody id="list-tbody" class="list-tbody">
+                    <!-- ADD DATA HERE -->
+                    <!-- dummy data -->
+                    <tr>
+                        <th>1</th>
+                        <th>jeroen van caak</th>
+                        <th>$ 123.254.2</th>
+                    </tr>
+                    <tr>
+                        <th>1</th>
+                        <th>jeroen van caak</th>
+                        <th>$ 123.254.2</th>
+                    </tr>
+                    <tr>
+                        <th>1</th>
+                        <th>jeroen van caak</th>
+                        <th>$ 123.254.2</th>
+                    </tr>
+                    <tr>
+                        <th>1</th>
+                        <th>jeroen van caak</th>
+                        <th>$ 123.254.2</th>
+                    </tr>
+                    <tr>
+                        <th>1</th>
+                        <th>jeroen van caak</th>
+                        <th>$ 123.254.2</th>
+                    </tr>
+                    <tr>
+                        <th>1</th>
+                        <th>jeroen van caak</th>
+                        <th>$ 123.254.2</th>
+                    </tr>
+                    <tr>
+                        <th>1</th>
+                        <th>jeroen van caak</th>
+                        <th>$ 123.254.2</th>
+                    </tr>
+                    <tr>
+                        <th>1</th>
+                        <th>jeroen van caak</th>
+                        <th>$ 123.254.2</th>
+                    </tr>
+                    <tr>
+                        <th>1</th>
+                        <th>jeroen van caak</th>
+                        <th>$ 123.254.2</th>
+                    </tr>
+                    <tr>
+                        <th>1</th>
+                        <th>jeroen van caak</th>
+                        <th>$ 123.254.2</th>
+                    </tr>
+                    <!-- DUMMY DATA -->
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
+
 
 @stop
