@@ -8,9 +8,16 @@
         @stack('styles')
         @stack('scripts')
         <link rel="stylesheet" href="/css/master.css">  
+
         <script src="/js/master.js" defer></script>
+
         <link rel="icon" href="https://img.icons8.com/color/50/000000/goal--v1.png">
+
         <link rel="stylesheet" href="https://unpkg.com/simplebar@latest/dist/simplebar.css"/>
+
+        <!-- stylesheet for dropdownmenue -->
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
         <script src="https://unpkg.com/simplebar@latest/dist/simplebar.min.js"></script>
     </head>
     <body>
@@ -31,8 +38,19 @@
                     <li class="nav-li">
                         <a class="nav-a" href="{{ route('pdcRanking') }}">PDC Ranking</a>    
                     </li>
+
+                    <li class="w3-dropdown-hover nav-li">
+                        <a class="nav-a" href="#">LOG OUT</a>
+                        <div class="w3-dropdown-content">
+                            <a href="#" class="w3-bar-item w3-button">Link 1</a>
+                            <a href="#" class="w3-bar-item w3-button">Link 2</a>
+                            <a href="#" class="w3-bar-item w3-button">Link 3</a>
+                        </div>
+                    </li>
+
                     
-                    <li class="nav-li">
+                    
+                    <!-- <li class="nav-li">
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                             <a class="nav-a" href="{{ route('logout') }}"
@@ -45,7 +63,7 @@
                                 @csrf
                             </form>
                         </div>
-                    </li>
+                    </li> -->
                     
                 </ul>
             </div>
