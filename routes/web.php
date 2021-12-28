@@ -15,13 +15,41 @@ use  App\Http\Controllers\Controller;
 |
 */
 
-
+Route::get('/', function () {
+    return view('welcome');
+});
 
 Route::get('home', [homeController::class, 'test'])->name('home');
-Route::get('pdcRanking', [Controller::class, 'pdcRanking'])->name('pdcRanking');
-Route::get('play', [Controller::class, 'play'])->name("play");
 
-// api for returning the chekout
-Route::get('getCheckout/{score}', [Controller::class, 'getCheckout'])->name("getCheckout");
+
+
+Auth::routes();
+// Google
+Route::prefix('google')->name('google.')->group( function(){
+    Route::get('login', [App\Http\Controllers\GoogleController::class, 'loginWithGoogle'])->name('login');
+    Route::any('callback', [App\Http\Controllers\GoogleController::class, 'callbackFromGoogle'])->name('callback');
+});
+
+// Facebook
+Route::prefix('facebook')->name('facebook.')->group( function(){
+    Route::get('login', [App\Http\Controllers\FaceBookController::class, 'loginWithFacebook'])->name('login');
+    Route::any('callback', [App\Http\Controllers\FaceBookController::class, 'callbackFromFacebook'])->name('callback');
+});
+
+// Github
+Route::prefix('github')->name('github.')->group( function(){
+    Route::get('login', [App\Http\Controllers\GithubController::class, 'loginWithGithub'])->name('login');
+    Route::any('callback', [App\Http\Controllers\GithubController::class, 'callbackFromGithub'])->name('callback');
+});
+
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('pdcRanking', [App\Http\Controllers\PdcRankingController::class, 'pdcRanking'])->name('pdcRanking');
+Route::get('play', [App\Http\Controllers\PlayController::class, 'play'])->name("play");
+
+// api for returning the checkout
+Route::get('getCheckout/{score}', [App\Http\Controllers\PlayController::class, 'getCheckout'])->name("getCheckout");
 // api call for returning the ranking order of merit
-Route::get('/ranking/get-data', [Controller::class, 'getRanking']);
+Route::get('/ranking/get-data', [App\Http\Controllers\PdcRankingController::class, 'getRanking']);
+
+
