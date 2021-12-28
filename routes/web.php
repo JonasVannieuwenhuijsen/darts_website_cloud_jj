@@ -52,4 +52,3 @@ Route::get('getCheckout/{score}', [App\Http\Controllers\PlayController::class, '
 // api call for returning the ranking order of merit
 Route::get('/ranking/get-data', [App\Http\Controllers\PdcRankingController::class, 'getRanking']);
 
-
