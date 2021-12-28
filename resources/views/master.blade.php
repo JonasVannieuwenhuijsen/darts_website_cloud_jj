@@ -16,7 +16,7 @@
         <link rel="stylesheet" href="https://unpkg.com/simplebar@latest/dist/simplebar.css"/>
 
         <!-- stylesheet for dropdownmenue -->
-        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
 
         <script src="https://unpkg.com/simplebar@latest/dist/simplebar.min.js"></script>
     </head>
@@ -40,11 +40,11 @@
                     </li>
 
                     <li class="w3-dropdown-hover nav-li">
-                        <a class="nav-a" href="#">LOG OUT</a>
+                        <a class="logout-a" href="#">LOG OUT</a>
                         <div class="w3-dropdown-content">
-                            <a href="#" class="w3-bar-item w3-button">Link 1</a>
+                            <!-- <a href="#" class="w3-bar-item w3-button">Link 1</a>
                             <a href="#" class="w3-bar-item w3-button">Link 2</a>
-                            <a href="#" class="w3-bar-item w3-button">Link 3</a>
+                            <a href="#" class="w3-bar-item w3-button">Link 3</a> -->
                         </div>
                     </li>
 
