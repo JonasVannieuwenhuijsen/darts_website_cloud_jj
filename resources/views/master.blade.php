@@ -16,7 +16,7 @@
         <link rel="stylesheet" href="https://unpkg.com/simplebar@latest/dist/simplebar.css"/>
 
         <!-- stylesheet for dropdownmenue -->
-        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
 
         <script src="https://unpkg.com/simplebar@latest/dist/simplebar.min.js"></script>
     </head>
@@ -39,12 +39,24 @@
                         <a class="nav-a" href="{{ route('pdcRanking') }}">PDC Ranking</a>    
                     </li>
 
-                    <li class="w3-dropdown-hover nav-li">
-                        <a class="logout-a" href="#">LOG OUT</a>
-                        <div class="w3-dropdown-content">
-                            <a href="#" class="w3-bar-item w3-button">Link 1</a>
-                            <a href="#" class="w3-bar-item w3-button">Link 2</a>
-                            <a href="#" class="w3-bar-item w3-button">Link 3</a>
+                    <li class="nav-li dropdown">
+                        <div class="name_container">
+                            <img src="https://picsum.photos/200/300" alt="" >
+                            <a class="logout-a" href="#">{{ Auth::user()->name }}</a>
+                        </div>
+                        
+                        <div class="dropdown-content">
+                            <a class="" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                                document.getElementById('logout-form').submit();">
+                                LOGOUT
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                            <!-- <a href="#" class="w3-bar-item w3-button">Link 2</a>
+                            <a href="#" class="w3-bar-item w3-button">Link 3</a> -->
                         </div>
                     </li>
 

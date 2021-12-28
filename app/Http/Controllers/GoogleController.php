@@ -17,7 +17,7 @@ class GoogleController extends Controller
     public function callbackFromGoogle(){
         try {
             $user = Socialite::driver('google')->stateless()->user();
-            //dd($user);
+            // dd($user);
 
             $is_user = User::where('email', $user->getEmail())->first();
             //dd($is_user);
