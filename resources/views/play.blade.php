@@ -36,7 +36,7 @@
                 </button>
             </div>
         </div>
-        <button onclick="restartGame()">RESTART</button>
+        <button class="restart_btn" onclick="restartGame()">RESTART</button>
     </div>
     
     <!-- contianer for displaying the score -->
@@ -59,6 +59,7 @@
                         <span>82</span>
                     </div>
                     <div class="checkout playerData">
+                        <span id="loader" style="display: none;">LOADING ...</span>
                         <span>checkout</span>
                         <span id="topCheckout">No checkout</span>
                     </div>
@@ -70,7 +71,7 @@
 
             <!-- bottom score display -->
             <div class="PlayerScoreDisplay-container">
-                <span class="player-score">501</span>
+                <span class="player-score" id="bottemPlayerScore">501</span>
                 <div class="playerdata-container">
                     <div class="3dartsavg playerData">
                         <span>3-darts avg:</span>
@@ -86,7 +87,7 @@
                     </div>
                     <div class="checkout playerData">
                         <span>checkout</span>
-                        <span>T20 T20 D20</span>
+                        <span id="bottemCheckout">T20 T20 D20</span>
                     </div>
                 </div>
             </div>

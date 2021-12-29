@@ -183,13 +183,11 @@ body {
 .play-container {
     height: 88vh;
     display: flex;
-    align-items: center;
 }
 .play-calculator-container {
     width: 50%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
 }
 
@@ -270,10 +268,26 @@ body {
     align-items: center;
 }
 
+.restart_btn {
+    background: #C4C4C4;
+    color: white;
+    border: 5px solid white;
+    padding: 1rem 2rem;
+    border-radius: 20px;
+    font-size: 2rem;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.restart_btn:hover {
+    background: #5e5e5e;
+}
+
 .play-scoredisplay-container {
     display: flex;
     justify-content: center;
     width: 50%;
+    
 }
 
 .main-score-display-container{
@@ -281,7 +295,8 @@ body {
     border: 4px solid white;
     background: #FF4E4E;
     border-radius: 18px;
-    
+    margin: 2rem 0;
+    height: 85%;    
 }
 
 .PlayerScoreDisplay-container {

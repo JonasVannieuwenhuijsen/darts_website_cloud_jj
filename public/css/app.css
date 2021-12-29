@@ -133,6 +133,13 @@ body {
   margin-top: 0px;
 }
 
+.button-containter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .button-containter button{
   width: 200px;
   background-color: rgba(0, 0, 0, 0.808);
@@ -142,6 +149,7 @@ body {
   padding: .8rem 1rem;
   font-size: 1.2rem;
   margin: .6rem;
+  cursor: pointer;
 }
 
 .form-check {

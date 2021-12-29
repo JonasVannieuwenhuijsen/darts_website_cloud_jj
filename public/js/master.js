@@ -1,6 +1,8 @@
 // HOME -------------------------------------------------------------------------------------
 
 // PLAY -------------------------------------------------------------------------------------
+
+var playersTurn = 1;
 function checkForAmountOfNumbers(number) {
     var value = document.getElementById("inputLable").value
     if (value.length >= 3 || (value + number) > 180) {
@@ -68,39 +70,67 @@ function runClear(){
     document.getElementById("inputLable").value = "";
 };
 
+var loading;
 async function fetchCheckout(score) {
+    loading = true;
     const response = await fetch('/getCheckout/' + score);
     const checkout = await response.json();
+    loading = false;
+    
     return checkout;
   }
+
 
 
 function submitScore(){
     
     var score = document.getElementById("inputLable").value;
-    var totalScore = document.getElementById("topPlayerScore").textContent;
+    if ((playersTurn % 2) === 0) {
+        var totalScore = document.getElementById("bottemPlayerScore").textContent;
+    } else {
+        var totalScore = document.getElementById("topPlayerScore").textContent;
+    }
     document.getElementById("inputLable").value = "";
 
     if (score > 180) {
         alert("Score is to high. lower your score.");
     } else {
-        if ((totalScore - score) === 0) {
+        if ((totalScore - score) === 0 && (playersTurn % 2) === 0) {
+            document.getElementById("bottemPlayerScore").textContent = "WINNER"
+        } else if((totalScore - score) === 0) {
             document.getElementById("topPlayerScore").textContent = "WINNER"
-        } else {
-            document.getElementById("topPlayerScore").textContent = totalScore - score;
+        } else{
+            if ((playersTurn % 2) === 0) {
+                document.getElementById("bottemPlayerScore").textContent = totalScore - score;
+            } else {
+                document.getElementById("topPlayerScore").textContent = totalScore - score;
+            }
         }
     
         var test = totalScore - score;
         fetchCheckout(test).then(checkout => {
+            document.getElementById("loader").style.display = 'block';
             console.log(checkout);
-            document.getElementById("topCheckout").textContent = checkout["Checkout"]
+            if ((playersTurn % 2) === 0) {
+                document.getElementById("bottemCheckout").textContent = checkout["Checkout"]
+
+            }else {
+                document.getElementById("topCheckout").textContent = checkout["Checkout"]
+
+            }
+            playersTurn += 1;
+            document.getElementById("loader").style.display = 'none';
+
         })
+        
     }
     
 }
 
 function restartGame(){
-    document.getElementById("topPlayerScore").textContent = "501";
+        document.getElementById("bottemPlayerScore").textContent = "501";
+        document.getElementById("topPlayerScore").textContent = "501";
+        playersTurn = 1;
 }
 
 
