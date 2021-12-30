@@ -32,9 +32,9 @@
                     <li class="nav-li">
                         <a class="nav-a" href="{{ route('play') }}">play</a>
                     </li>
-                    <li class="nav-li">
-                        <a class="nav-a" href="{{ route('home') }}">Player Info</a>
-                    </li>
+                    <!-- <li class="nav-li">
+                        <a class="nav-a" href="{{ route('playerInfo') }}">Player Info</a>
+                    </li> -->
                     <li class="nav-li">
                         <a class="nav-a" href="{{ route('pdcRanking') }}">PDC Ranking</a>    
                     </li>
@@ -59,6 +59,10 @@
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                 @csrf
                             </form>
+                            <a href="{{ route('playerInfo') }}">PLAYER INFO</a>
+                            
+
+
                             <!-- <a href="#" class="w3-bar-item w3-button">Link 2</a>
                             <a href="#" class="w3-bar-item w3-button">Link 3</a> -->
                         </div>

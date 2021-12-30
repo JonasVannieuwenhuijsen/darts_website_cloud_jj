@@ -52,11 +52,11 @@
                     </div>
                     <div class="dartsthrown playerData">
                         <span>darts thrown:</span>
-                        <span>9</span>
+                        <span id="TopDatrsThrown">0</span>
                     </div>
                     <div class="lastscore playerData">
                         <span>last score:</span>
-                        <span>82</span>
+                        <span id="TopLastScore">0</span>
                     </div>
                     <div class="checkout playerData">
                         <span id="loader" style="display: none;">LOADING ...</span>
@@ -79,15 +79,15 @@
                     </div>
                     <div class="dartsthrown playerData">
                         <span>darts thrown:</span>
-                        <span>9</span>
+                        <span id="BottemDatrsThrown">0</span>
                     </div>
                     <div class="lastscore playerData">
                         <span>last score:</span>
-                        <span>82</span>
+                        <span id="BottemLastScore">0</span>
                     </div>
                     <div class="checkout playerData">
                         <span>checkout</span>
-                        <span id="bottemCheckout">T20 T20 D20</span>
+                        <span id="bottemCheckout">No checkout</span>
                     </div>
                 </div>
             </div>

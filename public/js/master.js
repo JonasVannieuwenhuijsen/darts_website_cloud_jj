@@ -3,6 +3,8 @@
 // PLAY -------------------------------------------------------------------------------------
 
 var playersTurn = 1;
+var dartsThrownTop = 0;
+var dartsThrownBottem = 0;
 function checkForAmountOfNumbers(number) {
     var value = document.getElementById("inputLable").value
     if (value.length >= 3 || (value + number) > 180) {
@@ -103,8 +105,18 @@ function submitScore(){
         } else{
             if ((playersTurn % 2) === 0) {
                 document.getElementById("bottemPlayerScore").textContent = totalScore - score;
+                
+                dartsThrownBottem += 3;
+                document.getElementById("BottemDatrsThrown").textContent = dartsThrownBottem;
+                document.getElementById("BottemLastScore").textContent = score;
+
+                
             } else {
                 document.getElementById("topPlayerScore").textContent = totalScore - score;
+                dartsThrownTop += 3;
+                document.getElementById("TopDatrsThrown").textContent = dartsThrownTop;
+                document.getElementById("TopLastScore").textContent = score;
+
             }
         }
     
@@ -113,11 +125,11 @@ function submitScore(){
             document.getElementById("loader").style.display = 'block';
             console.log(checkout);
             if ((playersTurn % 2) === 0) {
-                document.getElementById("bottemCheckout").textContent = checkout["getCheckoutResult"]
-
+                document.getElementById("bottemCheckout").textContent = checkout["getCheckoutResult"];
+                 
             }else {
                 document.getElementById("topCheckout").textContent = checkout["getCheckoutResult"]
-
+                 
             }
             playersTurn += 1;
             document.getElementById("loader").style.display = 'none';
@@ -131,7 +143,20 @@ function submitScore(){
 function restartGame(){
         document.getElementById("bottemPlayerScore").textContent = "501";
         document.getElementById("topPlayerScore").textContent = "501";
+        document.getElementById("bottemCheckout").textContent = "No checkout";
+        document.getElementById("topCheckout").textContent = "No checkout";
+        document.getElementById("TopLastScore").textContent = 0;
+        document.getElementById("BottemLastScore").textContent = 0;
+
+        
         playersTurn = 1;
+
+        dartsThrownTop = 0;
+        document.getElementById("BottemDatrsThrown").textContent = dartsThrownTop; 
+
+        dartsThrownBottem = 0;
+        document.getElementById("TopDatrsThrown").textContent = dartsThrownBottem; 
+
 }
 
 

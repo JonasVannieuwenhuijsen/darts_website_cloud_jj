@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use  App\Http\Controllers\homeController;
 use  App\Http\Controllers\Controller;
+use  App\Http\Controllers\PlayerInfoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,6 +47,7 @@ Route::prefix('github')->name('github.')->group( function(){
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('pdcRanking', [App\Http\Controllers\PdcRankingController::class, 'pdcRanking'])->name('pdcRanking');
 Route::get('play', [App\Http\Controllers\PlayController::class, 'play'])->name("play");
+Route::get('playerInfo', [App\Http\Controllers\PlayerInfoController::class, 'playerInfo'])->name("playerInfo");
 
 // api for returning the checkout
 Route::get('getCheckout/{score}', [App\Http\Controllers\PlayController::class, 'getCheckouts'])->name("getCheckout");
