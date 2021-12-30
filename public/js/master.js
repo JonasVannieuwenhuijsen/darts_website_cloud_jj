@@ -5,6 +5,9 @@
 var playersTurn = 1;
 var dartsThrownTop = 0;
 var dartsThrownBottem = 0;
+var prevAvgTop = 0;
+var prevAvgBottem = 0;
+
 function checkForAmountOfNumbers(number) {
     var value = document.getElementById("inputLable").value
     if (value.length >= 3 || (value + number) > 180) {
@@ -76,11 +79,19 @@ var loading;
 async function fetchCheckout(score) {
     loading = true;
     const response = await fetch('/getCheckout/' + score);
-    console.log(response);
+    // console.log(response);
     const checkout = await response.json();
     loading = false;
     
     return checkout;
+  }
+
+  async function fetchAvg(prevAvg, amountDarts, thrownScore) {
+    const response = await fetch('/getAvg/' + prevAvg + '/' + amountDarts + '/' + thrownScore);
+    // console.log(response);
+    const avg = await response.json();
+    
+    return avg;
   }
 
 
@@ -106,16 +117,31 @@ function submitScore(){
             if ((playersTurn % 2) === 0) {
                 document.getElementById("bottemPlayerScore").textContent = totalScore - score;
                 
+                fetchAvg(prevAvgBottem, dartsThrownBottem, score).then(avg => {
+                    document.getElementById("BottemAvg").textContent = avg["getAverage3DartScoreResult"];
+                    prevAvgBottem = avg["getAverage3DartScoreResult"];
+                });
+
                 dartsThrownBottem += 3;
                 document.getElementById("BottemDatrsThrown").textContent = dartsThrownBottem;
                 document.getElementById("BottemLastScore").textContent = score;
+                
+                
 
                 
             } else {
                 document.getElementById("topPlayerScore").textContent = totalScore - score;
+                
+                fetchAvg(prevAvgTop, dartsThrownTop, score).then(avg => {
+                    document.getElementById("BottemAvg").textContent = avg["getAverage3DartScoreResult"];
+                    prevAvgTop = avg["getAverage3DartScoreResult"];
+                });
+                
                 dartsThrownTop += 3;
                 document.getElementById("TopDatrsThrown").textContent = dartsThrownTop;
                 document.getElementById("TopLastScore").textContent = score;
+
+                
 
             }
         }
@@ -135,7 +161,6 @@ function submitScore(){
             document.getElementById("loader").style.display = 'none';
 
         })
-        
     }
     
 }

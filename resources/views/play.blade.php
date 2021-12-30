@@ -48,7 +48,7 @@
                 <div class="playerdata-container">
                     <div class="3dartsavg playerData">
                         <span>3-darts avg:</span>
-                        <span>52.2</span>
+                        <span id="TopAvg">0</span>
                     </div>
                     <div class="dartsthrown playerData">
                         <span>darts thrown:</span>
@@ -75,7 +75,7 @@
                 <div class="playerdata-container">
                     <div class="3dartsavg playerData">
                         <span>3-darts avg:</span>
-                        <span>52.2</span>
+                        <span id="BottemAvg">0</span>
                     </div>
                     <div class="dartsthrown playerData">
                         <span>darts thrown:</span>

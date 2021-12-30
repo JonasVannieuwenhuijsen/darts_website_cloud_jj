@@ -53,4 +53,6 @@ Route::get('playerInfo', [App\Http\Controllers\PlayerInfoController::class, 'pla
 Route::get('getCheckout/{score}', [App\Http\Controllers\PlayController::class, 'getCheckouts'])->name("getCheckout");
 // api call for returning the ranking order of merit
 Route::get('/ranking/get-data', [App\Http\Controllers\PdcRankingController::class, 'getRanking']);
+// api for returning the 3 darts avg
+Route::get('/getAvg/{prevAvg}/{amountDarts}/{thrownScore}', [App\Http\Controllers\PlayController::class, 'getAvg'])->name("getAvg");
 
