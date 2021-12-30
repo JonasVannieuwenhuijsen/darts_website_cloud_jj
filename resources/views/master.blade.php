@@ -41,7 +41,11 @@
 
                     <li class="nav-li dropdown">
                         <div class="name_container">
-                            <img src= "{{ Auth::user()->foto_url }}" alt="" >
+                            @if (Auth::user()->foto_url == "")
+                                <img src= "https://img.icons8.com/color/50/000000/goal--v1.png" alt="" />
+                            @else 
+                                <img src= "{{ Auth::user()->foto_url }}" alt="" />
+                            @endif
                             <a class="logout-a" href="#">{{ Auth::user()->name }}</a>
                         </div>
                         
