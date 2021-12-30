@@ -41,7 +41,7 @@
 
                     <li class="nav-li dropdown">
                         <div class="name_container">
-                            <img src="https://picsum.photos/200/300" alt="" >
+                            <img src= "{{ Auth::user()->foto_url }}" alt="" >
                             <a class="logout-a" href="#">{{ Auth::user()->name }}</a>
                         </div>
                         

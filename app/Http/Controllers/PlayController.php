@@ -53,7 +53,7 @@ class PlayController extends Controller
         $response = Soap::to('https://checkout-soap-docker.herokuapp.com/SOAPDart.asmx?WSDL')->call('getCheckout', ['getal' => $score]);
         $array = json_decode(json_encode($response), TRUE); 
         $responseBody = $array['response'];
-        // dd($responseBody);
+        //dd($responseBody);
         return $responseBody;
     }
 
