@@ -86,13 +86,15 @@ async function fetchCheckout(score) {
     return checkout;
   }
 
-  async function fetchAvg(prevAvg, amountDarts, thrownScore) {
+async function fetchAvg(prevAvg, amountDarts, thrownScore) {
+    loading = true;
     const response = await fetch('/getAvg/' + prevAvg + '/' + amountDarts + '/' + thrownScore);
     // console.log(response);
     const avg = await response.json();
-    
+    loading = false;
+
     return avg;
-  }
+}
 
 
 
@@ -133,7 +135,7 @@ function submitScore(){
                 document.getElementById("topPlayerScore").textContent = totalScore - score;
                 
                 fetchAvg(prevAvgTop, dartsThrownTop, score).then(avg => {
-                    document.getElementById("BottemAvg").textContent = avg["getAverage3DartScoreResult"];
+                    document.getElementById("TopAvg").textContent = avg["getAverage3DartScoreResult"];
                     prevAvgTop = avg["getAverage3DartScoreResult"];
                 });
                 

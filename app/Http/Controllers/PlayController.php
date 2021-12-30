@@ -62,8 +62,8 @@ class PlayController extends Controller
         $response = Soap::to('https://avg3-dart-soap-csharp-docker.herokuapp.com/Average3Dart.asmx')->call('getAverage3DartScore', ['prevAvg' => $prevAvg, 'amountDarts' => $amountDarts, 'thrownScore' => $thrownScore]);
         $array = json_decode(json_encode($response), TRUE); 
         $responseBody = $array['response'];
-        dd($responseBody);
-        // return $responseBody;
+        //dd($responseBody);
+        return $responseBody;
     }
     
 
