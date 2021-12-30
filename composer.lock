@@ -4,37 +4,26 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "417704e4baf9f5c2688cf86afb1f69bf",
+    "content-hash": "8975e47b456349ba39b7ceefb8b949ef",
     "packages": [
         {
             "name": "artisaninweb/laravel-soap",
-            "version": "0.3.0.10",
+            "version": "0.2.5.10",
             "source": {
                 "type": "git",
-                "url": "https://github.com/notfalsedev/laravel-soap.git",
-                "reference": "809073fe1116e3e3daadcf8571fc58b0a9603574"
+                "url": "https://github.com/artisaninweb/laravel-soap.git",
+                "reference": "a25956372fdc095a2206a5cacf76d12b1b11c084"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/notfalsedev/laravel-soap/zipball/809073fe1116e3e3daadcf8571fc58b0a9603574",
-                "reference": "809073fe1116e3e3daadcf8571fc58b0a9603574",
+                "url": "https://api.github.com/repos/artisaninweb/laravel-soap/zipball/a25956372fdc095a2206a5cacf76d12b1b11c084",
+                "reference": "a25956372fdc095a2206a5cacf76d12b1b11c084",
                 "shasum": ""
             },
             "require": {
-                "ext-soap": "*",
                 "php": ">=5.4.0"
             },
             "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Artisaninweb\\SoapWrapper\\ServiceProvider"
-                    ],
-                    "aliases": {
-                        "SoapWrapper": "Artisaninweb\\SoapWrapper\\Facade"
-                    }
-                }
-            },
             "autoload": {
                 "psr-0": {
                     "Artisaninweb\\SoapWrapper": "src/"
@@ -58,10 +47,10 @@
                 "wrapper"
             ],
             "support": {
-                "issues": "https://github.com/notfalsedev/laravel-soap/issues",
-                "source": "https://github.com/notfalsedev/laravel-soap/tree/0.3.0.10"
+                "issues": "https://github.com/artisaninweb/laravel-soap/issues",
+                "source": "https://github.com/artisaninweb/laravel-soap/tree/master"
             },
-            "time": "2021-05-04T14:48:03+00:00"
+            "time": "2015-06-17T11:22:29+00:00"
         },
         {
             "name": "asm89/stack-cors",
@@ -3113,6 +3102,68 @@
                 }
             ],
             "time": "2021-09-25T23:10:38+00:00"
+        },
+        {
+            "name": "ricorocks-digital-agency/soap",
+            "version": "v1.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Ricorocks-Digital-Agency/Soap.git",
+                "reference": "99cdcd26b8638bf2cd018eeacb7617bc7b3b8040"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Ricorocks-Digital-Agency/Soap/zipball/99cdcd26b8638bf2cd018eeacb7617bc7b3b8040",
+                "reference": "99cdcd26b8638bf2cd018eeacb7617bc7b3b8040",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^8.16",
+                "php": "^7.4|^8.0"
+            },
+            "require-dev": {
+                "ext-soap": "*",
+                "orchestra/testbench": "^6.5",
+                "pestphp/pest": "^1.0",
+                "phpunit/phpunit": "^9.4",
+                "spatie/ray": "^1.17"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "RicorocksDigitalAgency\\Soap\\Providers\\SoapServiceProvider"
+                    ],
+                    "aliases": [
+                        "RicorocksDigitalAgency\\Soap\\Facades\\Soap"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "RicorocksDigitalAgency\\Soap\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Luke Downing",
+                    "email": "luke@ricorocks.agency"
+                },
+                {
+                    "name": "Sam Rowden",
+                    "email": "sam@ricorocks.agency"
+                }
+            ],
+            "description": "A SOAP client that provides a clean interface for handling requests and responses.",
+            "support": {
+                "issues": "https://github.com/Ricorocks-Digital-Agency/Soap/issues",
+                "source": "https://github.com/Ricorocks-Digital-Agency/Soap/tree/v1.5.0"
+            },
+            "time": "2021-08-03T12:41:47+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",

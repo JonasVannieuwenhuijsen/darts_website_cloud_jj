@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
+use RicorocksDigitalAgency\Soap\Facades\Soap;
+use SoapClient;
 
 class PlayController extends Controller
 {
@@ -23,8 +25,9 @@ class PlayController extends Controller
         return view('play');
     }
 
-    public function getCheckout($score)
+    public function getCheckouts($score)
     {
+        /*
         $client = new Client();
         $url = "https://checkoutservicenodejs.herokuapp.com/checkout/" . $score;
 
@@ -37,6 +40,20 @@ class PlayController extends Controller
 
         // dd($responseBody);
 
+        return $responseBody;
+        */
+
+        /* Soap in laravel
+         xampp/php/php.ini uncomment extension=soap
+         install: "composer require ricorocks-digital-agency/soap"
+         add in file: "use RicorocksDigitalAgency\Soap\Facades\Soap"
+         https://github.com/ricorocks-Digital-Agency/soap#installation
+        */
+        
+        $response = Soap::to('https://checkout-soap-docker.herokuapp.com/SOAPDart.asmx?WSDL')->call('getCheckout', ['getal' => $score]);
+        $array = json_decode(json_encode($response), TRUE); 
+        $responseBody = $array['response'];
+        // dd($responseBody);
         return $responseBody;
     }
 

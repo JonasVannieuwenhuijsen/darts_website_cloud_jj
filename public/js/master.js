@@ -74,6 +74,7 @@ var loading;
 async function fetchCheckout(score) {
     loading = true;
     const response = await fetch('/getCheckout/' + score);
+    console.log(response);
     const checkout = await response.json();
     loading = false;
     
@@ -112,10 +113,10 @@ function submitScore(){
             document.getElementById("loader").style.display = 'block';
             console.log(checkout);
             if ((playersTurn % 2) === 0) {
-                document.getElementById("bottemCheckout").textContent = checkout["Checkout"]
+                document.getElementById("bottemCheckout").textContent = checkout["getCheckoutResult"]
 
             }else {
-                document.getElementById("topCheckout").textContent = checkout["Checkout"]
+                document.getElementById("topCheckout").textContent = checkout["getCheckoutResult"]
 
             }
             playersTurn += 1;
