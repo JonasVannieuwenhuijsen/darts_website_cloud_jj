@@ -17,7 +17,7 @@ use  App\Http\Controllers\PlayerInfoController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('login');
 });
 
 Route::get('home', [homeController::class, 'test'])->name('home');
@@ -55,4 +55,6 @@ Route::get('getCheckout/{score}', [App\Http\Controllers\PlayController::class, '
 Route::get('/ranking/get-data', [App\Http\Controllers\PdcRankingController::class, 'getRanking']);
 // api for returning the 3 darts avg
 Route::get('/getAvg/{prevAvg}/{amountDarts}/{thrownScore}', [App\Http\Controllers\PlayController::class, 'getAvg'])->name("getAvg");
+// api to get user id
+Route::get('/getPlayerId', [App\Http\Controllers\PlayController::class, 'getPlayerId'])->name("getPlayerId");
 

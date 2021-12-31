@@ -6,6 +6,8 @@ use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use RicorocksDigitalAgency\Soap\Facades\Soap;
 use SoapClient;
+use Illuminate\Support\Facades\Auth;
+
 
 class PlayController extends Controller
 {
@@ -53,7 +55,9 @@ class PlayController extends Controller
         $response = Soap::to('https://checkout-soap-docker.herokuapp.com/SOAPDart.asmx?WSDL')->call('getCheckout', ['getal' => $score]);
         $array = json_decode(json_encode($response), TRUE); 
         $responseBody = $array['response'];
-        //dd($responseBody);
+        // dd($responseBody);
+
+        // $responseBody = "{\"getCheckoutResult\":\"T20 T20 50\"}";
         return $responseBody;
     }
 
@@ -66,5 +70,12 @@ class PlayController extends Controller
         return $responseBody;
     }
     
+
+    public function getPlayerId() {
+        $userId = Auth::user()->id;
+        // dd($userId);
+        return $userId;
+
+    }
 
 }

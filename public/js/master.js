@@ -1,5 +1,5 @@
 // HOME -------------------------------------------------------------------------------------
-
+//test
 // PLAY -------------------------------------------------------------------------------------
 
 var playersTurn = 1;
@@ -96,11 +96,27 @@ async function fetchAvg(prevAvg, amountDarts, thrownScore) {
     return avg;
 }
 
+async function fetchId() {
+    const response = await fetch('/getPlayerId');
+    // console.log(response);
+    const id = await response.json();
+
+    return id;
+}
+
 
 
 function submitScore(){
     
     var score = document.getElementById("inputLable").value;
+
+    // check if score is higher than 100 to add to databse
+    if (score >= 100) {
+        fetchId().then(id => {
+            console.log(id);
+        });
+    }
+
     if ((playersTurn % 2) === 0) {
         var totalScore = document.getElementById("bottemPlayerScore").textContent;
     } else {
@@ -110,6 +126,8 @@ function submitScore(){
 
     if (score > 180) {
         alert("Score is to high. lower your score.");
+    } else if (totalScore - score < 0 || (totalScore - score) === 1 ) {
+        alert("Not a finish. If Bust type in 0");
     } else {
         if ((totalScore - score) === 0 && (playersTurn % 2) === 0) {
             document.getElementById("bottemPlayerScore").textContent = "WINNER"
@@ -120,7 +138,7 @@ function submitScore(){
                 document.getElementById("bottemPlayerScore").textContent = totalScore - score;
                 
                 fetchAvg(prevAvgBottem, dartsThrownBottem, score).then(avg => {
-                    document.getElementById("BottemAvg").textContent = avg["getAverage3DartScoreResult"];
+                    document.getElementById("BottemAvg").textContent = avg["getAverage3DartScoreResult"].toFixed(1);
                     prevAvgBottem = avg["getAverage3DartScoreResult"];
                 });
 
@@ -135,7 +153,7 @@ function submitScore(){
                 document.getElementById("topPlayerScore").textContent = totalScore - score;
                 
                 fetchAvg(prevAvgTop, dartsThrownTop, score).then(avg => {
-                    document.getElementById("TopAvg").textContent = avg["getAverage3DartScoreResult"];
+                    document.getElementById("TopAvg").textContent = avg["getAverage3DartScoreResult"].toFixed(1);
                     prevAvgTop = avg["getAverage3DartScoreResult"];
                 });
                 
@@ -183,6 +201,13 @@ function restartGame(){
 
         dartsThrownBottem = 0;
         document.getElementById("TopDatrsThrown").textContent = dartsThrownBottem; 
+
+        prevAvgBottem = 0;
+        document.getElementById("BottemAvg").textContent = 0;
+
+        prevAvgTop = 0;
+        document.getElementById("TopAvg").textContent = 0;
+
 
 }
 

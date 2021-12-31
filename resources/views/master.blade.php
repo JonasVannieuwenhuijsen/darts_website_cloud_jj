@@ -21,6 +21,7 @@
         <script src="https://unpkg.com/simplebar@latest/dist/simplebar.min.js"></script>
     </head>
     <body>
+        
         <div class="navbar-container">
             <h1 class="topright_logo">Dartscloud.</h1>
             <div class="navbar">

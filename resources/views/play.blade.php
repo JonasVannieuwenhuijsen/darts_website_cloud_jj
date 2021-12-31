@@ -95,6 +95,9 @@
         
     </div>
 </div>   
-
+<script>
+    var name = "{{ Auth::user()->name }}";
+    console.log(test);
+</script>
 
 @stop
