@@ -26,7 +26,7 @@ class PdcRankingController extends Controller
     // link: https://stackoverflow.com/questions/67540932/laravel-passing-a-variable-to-js-file-from-a-controller
     public function getRanking()
     {
-        $dartApiKey = "4jx6q28jw7xpnkcfhuer4fxn";
+        $dartApiKey = "gyej54p7tcunejubawurq87r";
         $client = new Client();
         $url = "http://api.sportradar.us/darts/trial/v2/en/rankings.json?api_key=".$dartApiKey;
 

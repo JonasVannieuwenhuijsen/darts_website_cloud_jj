@@ -30,6 +30,7 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    /*
     'google' => [
         'client_id' => '1062925670136-mrhe18bitfab0en36p9ktffkqn1fm39i.apps.googleusercontent.com',
         'client_secret' => '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',
@@ -47,9 +48,9 @@ return [
         'client_secret' => '445edd71ce5cd3a1b2d2b206eabd1e605f263504',
         'redirect' => 'http://localhost:8000/github/callback',
     ],
+    */
 
-
-    /*'google' => [
+    'google' => [
         'client_id' => '1062925670136-mrhe18bitfab0en36p9ktffkqn1fm39i.apps.googleusercontent.com',
         'client_secret' => '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',
         'redirect' => 'http://dartscloud.herokuapp.com/google/callback',
@@ -66,5 +67,5 @@ return [
         'client_secret' => '445edd71ce5cd3a1b2d2b206eabd1e605f263504',
         'redirect' => 'http://dartscloud.herokuapp.com/github/callback',
     ],
-    */
+    
 ];
