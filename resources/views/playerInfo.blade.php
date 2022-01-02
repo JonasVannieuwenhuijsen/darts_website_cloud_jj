@@ -9,7 +9,7 @@
                 <thead>
                     <tr>
                         <th>Name</th>
-                        <th>Avg</th>
+                        <th>Best Avg</th>
                         <th>9 darters</th>
                         <th>Highest Finish</th>
                         <th>180</th>
@@ -35,7 +35,7 @@
                 <thead>
                     <tr>
                         <th>Name</th>
-                        <th>Avg</th>
+                        <th>Best Avg</th>
                         <th>9 darters</th>
                         <th>Highest Finish</th>
                         <th>180</th>

@@ -3,7 +3,7 @@
 
 // PLAY -------------------------------------------------------------------------------------
 
-var playersTurn = 1;
+var player = 1;
 var dartsThrownTop = 0;
 var dartsThrownBottem = 0;
 var prevAvgTop = 0;
@@ -114,20 +114,6 @@ async function fetchPlayerById(id) {
 }
 
 function fetchPostUpdateById(id, topic, newVal) {
-    // requestData = {
-    //     id: id,
-    //     topic: topic,
-    //     new_value: newVal
-    // }
-    // fetch('https://dartuser-api-st6rnqmhea-uc.a.run.app/updateById', {
-    //     method : 'POST',
-    //     body : JSON.stringify(requestData)
-    //   }).then(response => {
-    //     if (!response.ok) {
-    //       throw new Error("Got non-2XX response from API server.");
-    //     }
-    //     return response.json();
-    //   })
     var yourUrl = "https://dartuser-api-st6rnqmhea-uc.a.run.app/updateById"
     var xhr = new XMLHttpRequest();
     xhr.open("POST", yourUrl, true);
@@ -137,70 +123,26 @@ function fetchPostUpdateById(id, topic, newVal) {
         topic: topic,
         new_value: newVal
     }));
-
 }
 
 function submitScore(){
     
     var score = document.getElementById("inputLable").value;
-    if (!((playersTurn % 2) === 0)) {
-        if (score >= 100) {
-            fetchId().then(id => {
-                // console.log(id);
-                fetchPlayerById(id).then(player => {
-                    if (score === "180") {
-                        fetchPostUpdateById(id, "one_eigthies", (parseInt(player["one_eigthies"]) + 1).toString());
-                    } else if (score >= 140) {
-                        fetchPostUpdateById(id, "one_forties", (parseInt(player["one_forties"]) + 1).toString());
-                    } else if (score >= 120) {
-                        fetchPostUpdateById(id, "one_twenties", (parseInt(player["one_twenties"]) + 1).toString());
-                    } else if (score >= 100) {
-                        fetchPostUpdateById(id, "one_hundreds", (parseInt(player["one_hundreds"]) + 1).toString());
-                    }
-                })
-            });  
-        }
-    }
-        
-    
-    // check if score is higher than 100 to add to databse
-    
-
-    if ((playersTurn % 2) === 0) {
-        var totalScore = document.getElementById("bottemPlayerScore").textContent;
-    } else {
-        var totalScore = document.getElementById("topPlayerScore").textContent;
-    }
+    var topTotalScore = document.getElementById("topPlayerScore").textContent;
+    var bottemTotalScore = document.getElementById("bottemPlayerScore").textContent;
     document.getElementById("inputLable").value = "";
 
-    if (score > 180) {
+    if (topTotalScore === "WINNER" || bottemTotalScore === "WINNER" ){
+        alert("Restart game please!");
+    } else if (score > 180) {
         alert("Score is to high. lower your score.");
-    } else if (totalScore - score < 0 || (totalScore - score) === 1 ) {
-        alert("Not a finish. If Bust type in 0");
     } else {
-        if ((totalScore - score) === 0 && (playersTurn % 2) === 0) {
-            document.getElementById("bottemPlayerScore").textContent = "WINNER"
-        } else if((totalScore - score) === 0) {
-            document.getElementById("topPlayerScore").textContent = "WINNER"
-        } else{
-            if ((playersTurn % 2) === 0) {
-                document.getElementById("bottemPlayerScore").textContent = totalScore - score;
-                
-                fetchAvg(prevAvgBottem, dartsThrownBottem, score).then(avg => {
-                    document.getElementById("BottemAvg").textContent = avg["getAverage3DartScoreResult"].toFixed(1);
-                    prevAvgBottem = avg["getAverage3DartScoreResult"];
-                });
-
-                dartsThrownBottem += 3;
-                document.getElementById("BottemDatrsThrown").textContent = dartsThrownBottem;
-                document.getElementById("BottemLastScore").textContent = score;
-                
-                
-
-                
+        //Bovenste Speler
+        if (player === 1) {
+            var newTotalScore = topTotalScore - score;
+            if (newTotalScore < 0 || newTotalScore === 1){
+                alert("Not a finish. If Bust type in 0");
             } else {
-                document.getElementById("topPlayerScore").textContent = totalScore - score;
-                
                 fetchAvg(prevAvgTop, dartsThrownTop, score).then(avg => {
                     document.getElementById("TopAvg").textContent = avg["getAverage3DartScoreResult"].toFixed(1);
                     prevAvgTop = avg["getAverage3DartScoreResult"];
@@ -210,28 +152,89 @@ function submitScore(){
                 document.getElementById("TopDatrsThrown").textContent = dartsThrownTop;
                 document.getElementById("TopLastScore").textContent = score;
 
-                
+                fetchCheckout(newTotalScore).then(checkout => {
+                    document.getElementById("loader").style.display = 'block';
+                    document.getElementById("topCheckout").textContent = checkout["getCheckoutResult"]
+                    document.getElementById("loader").style.display = 'none';
+                })
+
+                if (score >= 100) {
+                    fetchId().then(id => {
+                        fetchPlayerById(id).then(player => {
+                            if (score === "180") {
+                                fetchPostUpdateById(id, "one_eigthies", (parseInt(player["one_eigthies"]) + 1).toString());
+                            } else if (score >= 140) {
+                                fetchPostUpdateById(id, "one_forties", (parseInt(player["one_forties"]) + 1).toString());
+                            } else if (score >= 120) {
+                                fetchPostUpdateById(id, "one_twenties", (parseInt(player["one_twenties"]) + 1).toString());
+                            } else if (score >= 100) {
+                                fetchPostUpdateById(id, "one_hundreds", (parseInt(player["one_hundreds"]) + 1).toString());
+                            }
+                        })
+                    });  
+                }
+
+                if (newTotalScore === 0){
+                    document.getElementById("topPlayerScore").textContent = "WINNER";
+
+                    fetchId().then(id => {
+                        fetchPlayerById(id).then(player => {
+                            var best_avg =  parseInt(player["best_avg"]);
+                            var highest_finish = parseInt(player["highest_finish"]);
+
+                            if (dartsThrownTop === 9){
+                                fetchPostUpdateById(id, "nine_darts", (parseInt(player["nine_darts"]) + 1).toString());
+                            }
+                            if (best_avg < prevAvgTop){
+                                fetchPostUpdateById(id, "best_avg", prevAvgTop.toString());
+                            }
+                            if (highest_finish < score){
+                                fetchPostUpdateById(id, "highest_finish", score.toString());
+                            }
+                        })
+                    }); 
+                } else {
+                    document.getElementById("topPlayerScore").textContent = newTotalScore;
+                }
+
+                player = 2;
+
+            }
+        } 
+        //Onderste speler
+        else {
+            var newTotalScore = bottemTotalScore - score;
+            if (newTotalScore < 0 || newTotalScore === 1){
+                alert("Not a finish. If Bust type in 0");
+            } else {
+                fetchAvg(prevAvgBottem, dartsThrownBottem, score).then(avg => {
+                    document.getElementById("BottemAvg").textContent = avg["getAverage3DartScoreResult"].toFixed(1);
+                    prevAvgBottem = avg["getAverage3DartScoreResult"];
+                });
+
+                dartsThrownBottem += 3;
+                document.getElementById("BottemDatrsThrown").textContent = dartsThrownBottem;
+                document.getElementById("BottemLastScore").textContent = score;
+
+                fetchCheckout(newTotalScore).then(checkout => {
+                    document.getElementById("loader").style.display = 'block';
+                    document.getElementById("bottemCheckout").textContent = checkout["getCheckoutResult"];
+                    document.getElementById("loader").style.display = 'none';
+                })
+
+                if (newTotalScore === 0){
+                    document.getElementById("bottemPlayerScore").textContent = "WINNER";
+                } else {
+                    document.getElementById("bottemPlayerScore").textContent = newTotalScore;
+                }
+
+                player = 1;
 
             }
         }
-    
-        var test = totalScore - score;
-        fetchCheckout(test).then(checkout => {
-            document.getElementById("loader").style.display = 'block';
-            console.log(checkout);
-            if ((playersTurn % 2) === 0) {
-                document.getElementById("bottemCheckout").textContent = checkout["getCheckoutResult"];
-                 
-            }else {
-                document.getElementById("topCheckout").textContent = checkout["getCheckoutResult"]
-                 
-            }
-            playersTurn += 1;
-            document.getElementById("loader").style.display = 'none';
-
-        })
     }
-    
+
+
 }
 
 function restartGame(){
@@ -243,7 +246,7 @@ function restartGame(){
         document.getElementById("BottemLastScore").textContent = 0;
 
         
-        playersTurn = 1;
+        player = 1;
 
         dartsThrownTop = 0;
         document.getElementById("BottemDatrsThrown").textContent = dartsThrownTop; 
@@ -268,5 +271,3 @@ function restartGame(){
 
 
 // PDC RANKIKNG -----------------------------------------------------------------------------
-
-
