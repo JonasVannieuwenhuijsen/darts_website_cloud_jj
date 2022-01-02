@@ -76,6 +76,6 @@
         </div>
     </div>
 </div>
-
+<script src="/js/ranking.js"></script>
 
 @stop

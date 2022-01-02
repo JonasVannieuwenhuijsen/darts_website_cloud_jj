@@ -57,4 +57,5 @@ Route::get('/ranking/get-data', [App\Http\Controllers\PdcRankingController::clas
 Route::get('/getAvg/{prevAvg}/{amountDarts}/{thrownScore}', [App\Http\Controllers\PlayController::class, 'getAvg'])->name("getAvg");
 // api to get user id
 Route::get('/getPlayerId', [App\Http\Controllers\PlayController::class, 'getPlayerId'])->name("getPlayerId");
-
+// api for retreiveing players
+Route::get('/getAllPlayers', [App\Http\Controllers\PlayerInfoController::class, 'getAllPlayers'])->name("getAllPlayers");

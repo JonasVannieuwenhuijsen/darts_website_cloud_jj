@@ -31,6 +31,7 @@ class GoogleController extends Controller
                     'foto_url' => $user->getAvatar(),
                 ]);
                 // dd($saveUser);
+                
             // POST REQUEST DOEN
             // API URL
             $url = 'https://dartuser-api-st6rnqmhea-uc.a.run.app/addNewPlayer';

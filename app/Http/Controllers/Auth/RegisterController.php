@@ -64,10 +64,48 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+
+        // POST REQUEST DOEN
+            // API URL
+            $url = 'https://dartuser-api-st6rnqmhea-uc.a.run.app/addNewPlayer';
+
+            // Create a new cURL resource
+            $ch = curl_init($url);
+
+            // Setup request to send json via POST
+            $data_user = array(
+                'id' => $user->id,
+                'name' => $user->name,
+                'best_avg' => '0',
+                'nine_darts' => '0',
+                'highest_finish' => '0',
+                'one_eigthies' => '0',
+                'one_forties' => '0',
+                'one_twenties' => '0',
+                'one_hundreds' => '0'
+            );
+            $payload = json_encode($data_user);
+            // dd($payload);
+            // Attach encoded JSON string to the POST fields
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
+
+            // Set the content type to application/json
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
+
+            // Return response instead of outputting
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+            // Execute the POST request
+            $result = curl_exec($ch);
+
+            // Close cURL resource
+            curl_close($ch);
+
+        return $user;
     }
 }

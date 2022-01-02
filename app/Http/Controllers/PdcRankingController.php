@@ -36,6 +36,8 @@ class PdcRankingController extends Controller
 
         $responseBody = json_decode($response->getBody(), true);
 
+        dd($responseBody);
+
         $ranking = array();
         for ($i=0; $i < 183; $i++) { 
             $player = $responseBody["rankings"]["1"]["competitor_rankings"][$i]["competitor"]["name"];
