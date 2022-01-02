@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8975e47b456349ba39b7ceefb8b949ef",
+    "content-hash": "12c7ca238d73be1577e66f3ea2a58fe2",
     "packages": [
         {
             "name": "artisaninweb/laravel-soap",
@@ -8196,7 +8196,8 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.3|^8.0"
+        "php": "^7.3|^8.0",
+        "ext-soap": "*"
     },
     "platform-dev": [],
     "plugin-api-version": "2.1.0"
