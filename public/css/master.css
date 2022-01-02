@@ -379,21 +379,27 @@ body {
     margin: 1rem 0;
 }
 
-.allplayers_div button {
-    cursor: pointer;
+.allplayers_div button{
+    width: 200px;
+    background-color: #FF4E4E;
+    border: none;
+    color:white;
+    border-radius: 5px;
     padding: .8rem 1rem;
-    background: #FF4E4E;
-    color: white;
-    border: 2px solid white;
-    border-radius: 12px;
-    margin: 1.5rem 0rem .5rem 0;
+    font-size: 1.2rem;
+    margin: .6rem;
+    cursor: pointer;
+    border: 2px solid #ffffff;
+
 }
 
+
+
 .allplayers_div button:hover {
-    background: white;
-    color: #FF4E4E;
+    border: 2px solid rgb(0, 0, 0);
 }
 .formPopup {
+    font-size: 1.5rem;
     display: none;
     position: fixed;
     left: 50%;
@@ -404,16 +410,39 @@ body {
     border: 3px solid white ;
     padding: 2rem;
     box-shadow: 1px 9px 23px 7px rgba(0,0,0,0.56);
+    border-radius: 20px;
 }
 .form_text_container {
     display: flex;
     flex-direction: column;
+    
 }
 
 .formContainer {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
+
+.formContainer input {
+    width: 300px;
+    height: 30px;
+    margin: .5rem 0;
+    border-radius: 5px;
+    border: none;
+    padding: .5rem 1rem;
+    background: rgba(255, 255, 255, 0.842);
+    
+  }
+
+.formContainer input::-webkit-input-placeholder {
+    text-align: center;
+    justify-content: center;
+    font-weight: 500;
+    font-size: 1.2rem;
+    color: rgba(0, 0, 0, 0.363);
+  }
 /* --------------------------------------------------- PDC RANKING VIEW --------------------------------------------------------- */
 .ranking-container {
     display: flex;

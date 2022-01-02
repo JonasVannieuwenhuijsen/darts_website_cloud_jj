@@ -9,7 +9,7 @@
                 <thead>
                     <tr>
                         <th>Name</th>
-                        <th>Best Avg</th>
+                        <th>All Time Avg</th>
                         <th>9 darters</th>
                         <th>Highest Finish</th>
                         <th>180</th>
@@ -40,7 +40,7 @@
                             <strong>My Average</strong>
                         </label>
                         <input type="text" id="avgInput" placeholder="Your Average" >
-                        <button type="button" class="btn" id="generateBtn" onclick="generatePlayer()">Generate</button>
+                        <button type="button" class="generateBtn" id="generateBtn" onclick="generatePlayer()">Generate</button>
 
                         <label for="psw">
                             <strong>Generated Player:</strong>
@@ -64,7 +64,7 @@
                 <thead>
                     <tr>
                         <th>Name</th>
-                        <th>Best Avg</th>
+                        <th>All Time Avg</th>
                         <th>9 darters</th>
                         <th>Highest Finish</th>
                         <th>180</th>

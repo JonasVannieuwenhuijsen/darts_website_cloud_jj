@@ -14,9 +14,9 @@ async function fetchAllPlayers() {
   }
 
 async function fetchPlayerbyClosestAvg(avg) {
-const response = await fetch('/getClosestAvg/' + avg);
-const player = await response.json();
-return player;
+    const response = await fetch('/getClosestAvg/' + avg);
+    const player = await response.json();
+    return player;
 }
 
 
@@ -105,7 +105,7 @@ return player;
             // SUB-SECTION AVG
             let avg = document.createElement("td");
             avg.classList.add("rank-td")
-            avg.innerHTML = allPlayers[i]['best_avg'];
+            avg.innerHTML = parseInt(allPlayers[i]['best_avg']).toFixed(2);
             item.appendChild(avg);
 
             // SUB-SECTION 9 DARTER
@@ -160,7 +160,7 @@ function generatePlayer() {
     var avg = document.getElementById("avgInput").value;
 
     fetchPlayerbyClosestAvg(avg).then(player => {
-        document.getElementById("generatedPlayer").textContent = player["name"]
-        document.getElementById("generatedAvg").textContent = player["avg"]
+        document.getElementById("generatedPlayer").textContent = player["name"];
+        document.getElementById("generatedAvg").textContent = parseInt(player["avg"]).toFixed(2);
     })
 }
