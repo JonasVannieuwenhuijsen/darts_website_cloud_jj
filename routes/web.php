@@ -31,12 +31,6 @@ Route::prefix('google')->name('google.')->group( function(){
     Route::any('callback', [App\Http\Controllers\GoogleController::class, 'callbackFromGoogle'])->name('callback');
 });
 
-// Facebook
-Route::prefix('facebook')->name('facebook.')->group( function(){
-    Route::get('login', [App\Http\Controllers\FaceBookController::class, 'loginWithFacebook'])->name('login');
-    Route::any('callback', [App\Http\Controllers\FaceBookController::class, 'callbackFromFacebook'])->name('callback');
-});
-
 // Github
 Route::prefix('github')->name('github.')->group( function(){
     Route::get('login', [App\Http\Controllers\GithubController::class, 'loginWithGithub'])->name('login');

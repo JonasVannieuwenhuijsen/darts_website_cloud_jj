@@ -47,7 +47,8 @@ class GithubController extends Controller
                     'one_eigthies' => '0',
                     'one_forties' => '0',
                     'one_twenties' => '0',
-                    'one_hundreds' => '0'
+                    'one_hundreds' => '0',
+                    'total_darts' => '0',
                 );
                 $payload = json_encode($data);
                 // dd($payload);

@@ -179,14 +179,17 @@ function submitScore(){
 
                     fetchId().then(id => {
                         fetchPlayerById(id).then(player => {
-                            var best_avg =  parseInt(player["best_avg"]);
+                            var allTime_avg =  parseInt(player["best_avg"]);
                             var highest_finish = parseInt(player["highest_finish"]);
+                            var total_darts = parseInt(player["total_darts"]);
+
+                            var newTotal_darts = total_darts + dartsThrownTop;
+                            var newAllTime_avg = (allTime_avg*(total_darts/3) + 501)/(newTotal_darts/3);
+                            fetchPostUpdateById(id, "best_avg", newAllTime_avg.toString());
+                            fetchPostUpdateById(id, "total_darts", newTotal_darts.toString());
 
                             if (dartsThrownTop === 9){
                                 fetchPostUpdateById(id, "nine_darts", (parseInt(player["nine_darts"]) + 1).toString());
-                            }
-                            if (best_avg < prevAvgTop){
-                                fetchPostUpdateById(id, "best_avg", prevAvgTop.toString());
                             }
                             if (highest_finish < score){
                                 fetchPostUpdateById(id, "highest_finish", score.toString());
@@ -224,6 +227,19 @@ function submitScore(){
 
                 if (newTotalScore === 0){
                     document.getElementById("bottemPlayerScore").textContent = "WINNER";
+
+                    fetchId().then(id => {
+                        fetchPlayerById(id).then(player => {
+                            var allTime_avg =  parseInt(player["best_avg"]);
+                            var total_darts = parseInt(player["total_darts"]);
+
+                            var newTotal_darts = total_darts + dartsThrownTop;
+                            var newAllTime_avg = (allTime_avg*(total_darts/3) + (501-topTotalScore))/(newTotal_darts/3);
+                            fetchPostUpdateById(id, "best_avg", newAllTime_avg.toString());
+                            fetchPostUpdateById(id, "total_darts", newTotal_darts.toString());
+                        })
+                    }); 
+
                 } else {
                     document.getElementById("bottemPlayerScore").textContent = newTotalScore;
                 }
