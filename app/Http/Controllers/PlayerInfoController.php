@@ -43,4 +43,26 @@ class PlayerInfoController extends Controller
 
         return $responseBody;
     }
+
+    public function getClosestAvg($avg)
+    {
+        $client = new Client();
+        $url = "https://pythonflaskrestservice.herokuapp.com/getAvg/".$avg;
+
+        $response = $client->request('GET', $url, [
+            'verify'  => false,
+        ]);
+
+        $responseBody = json_decode($response->getBody(), true);
+
+        // dd($responseBody['players']);
+
+        $randomValue = array_rand($responseBody['players']);
+
+        // dd($responseBody['players'][$randomValue]);
+
+        $person = $responseBody['players'][$randomValue];
+        return $person;
+    }
+    
 }

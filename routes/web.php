@@ -61,3 +61,5 @@ Route::get('/getPlayerId', [App\Http\Controllers\PlayController::class, 'getPlay
 Route::get('/getAllPlayers', [App\Http\Controllers\PlayerInfoController::class, 'getAllPlayers'])->name("getAllPlayers");
 // api get player by id
 Route::get('/getPlayerById/{id}', [App\Http\Controllers\PlayerInfoController::class, 'getPlayerById'])->name("getPlayerById");
+//api get closest avg
+Route::get('/getClosestAvg/{avg}', [App\Http\Controllers\PlayerInfoController::class, 'getClosestAvg'])->name("getClosestAvg");

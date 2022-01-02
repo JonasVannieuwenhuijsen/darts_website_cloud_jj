@@ -13,6 +13,12 @@ async function fetchAllPlayers() {
     return allPlayers;
   }
 
+async function fetchPlayerbyClosestAvg(avg) {
+const response = await fetch('/getClosestAvg/' + avg);
+const player = await response.json();
+return player;
+}
+
 
 
   fetchAllPlayers().then(allPlayers => {
@@ -142,3 +148,19 @@ async function fetchAllPlayers() {
             tbody.appendChild(item);
         }
   })
+
+function openForm() {
+document.getElementById("popupForm").style.display = "block";
+}
+function closeForm() {
+document.getElementById("popupForm").style.display = "none";
+}
+
+function generatePlayer() {
+    var avg = document.getElementById("avgInput").value;
+
+    fetchPlayerbyClosestAvg(avg).then(player => {
+        document.getElementById("generatedPlayer").textContent = player["name"]
+        document.getElementById("generatedAvg").textContent = player["avg"]
+    })
+}
