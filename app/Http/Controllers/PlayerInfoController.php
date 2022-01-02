@@ -27,4 +27,20 @@ class PlayerInfoController extends Controller
 
         return $responseBody;
     }
+
+    public function getPlayerById($id)
+    {
+        $client = new Client();
+        $url = "https://dartuser-api-st6rnqmhea-uc.a.run.app/id/".$id;
+
+        $response = $client->request('GET', $url, [
+            'verify'  => false,
+        ]);
+
+        $responseBody = json_decode($response->getBody(), true);
+
+        // dd($responseBody);
+
+        return $responseBody;
+    }
 }

@@ -105,17 +105,66 @@ async function fetchId() {
     return id;
 }
 
+async function fetchPlayerById(id) {
+    const response = await fetch('/getPlayerById/' + id);
+    // console.log(response);
+    const player = await response.json();
+
+    return player;
+}
+
+function fetchPostUpdateById(id, topic, newVal) {
+    // requestData = {
+    //     id: id,
+    //     topic: topic,
+    //     new_value: newVal
+    // }
+    // fetch('https://dartuser-api-st6rnqmhea-uc.a.run.app/updateById', {
+    //     method : 'POST',
+    //     body : JSON.stringify(requestData)
+    //   }).then(response => {
+    //     if (!response.ok) {
+    //       throw new Error("Got non-2XX response from API server.");
+    //     }
+    //     return response.json();
+    //   })
+    var yourUrl = "https://dartuser-api-st6rnqmhea-uc.a.run.app/updateById"
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", yourUrl, true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.send(JSON.stringify({
+        id: id,
+        topic: topic,
+        new_value: newVal
+    }));
+
+}
 
 function submitScore(){
     
     var score = document.getElementById("inputLable").value;
-
-    // check if score is higher than 100 to add to databse
-    if (score >= 100) {
-        fetchId().then(id => {
-            console.log(id);
-        });
+    if (!((playersTurn % 2) === 0)) {
+        if (score >= 100) {
+            fetchId().then(id => {
+                // console.log(id);
+                fetchPlayerById(id).then(player => {
+                    if (score === "180") {
+                        fetchPostUpdateById(id, "one_eigthies", (parseInt(player["one_eigthies"]) + 1).toString());
+                    } else if (score >= 140) {
+                        fetchPostUpdateById(id, "one_forties", (parseInt(player["one_forties"]) + 1).toString());
+                    } else if (score >= 120) {
+                        fetchPostUpdateById(id, "one_twenties", (parseInt(player["one_twenties"]) + 1).toString());
+                    } else if (score >= 100) {
+                        fetchPostUpdateById(id, "one_hundreds", (parseInt(player["one_hundreds"]) + 1).toString());
+                    }
+                })
+            });  
+        }
     }
+        
+    
+    // check if score is higher than 100 to add to databse
+    
 
     if ((playersTurn % 2) === 0) {
         var totalScore = document.getElementById("bottemPlayerScore").textContent;

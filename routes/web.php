@@ -59,3 +59,5 @@ Route::get('/getAvg/{prevAvg}/{amountDarts}/{thrownScore}', [App\Http\Controller
 Route::get('/getPlayerId', [App\Http\Controllers\PlayController::class, 'getPlayerId'])->name("getPlayerId");
 // api for retreiveing players
 Route::get('/getAllPlayers', [App\Http\Controllers\PlayerInfoController::class, 'getAllPlayers'])->name("getAllPlayers");
+// api get player by id
+Route::get('/getPlayerById/{id}', [App\Http\Controllers\PlayerInfoController::class, 'getPlayerById'])->name("getPlayerById");
