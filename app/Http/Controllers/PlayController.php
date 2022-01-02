@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use RicorocksDigitalAgency\Soap\Facades\Soap;
-use SoapClient;
 use Illuminate\Support\Facades\Auth;
 
 
