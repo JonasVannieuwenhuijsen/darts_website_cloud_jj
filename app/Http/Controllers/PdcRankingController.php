@@ -39,7 +39,7 @@ class PdcRankingController extends Controller
         //dd($responseBody);
 
         $ranking = array();
-        for ($i=0; $i < 183; $i++) { 
+        for ($i=0; $i < 96; $i++) { 
             $player = $responseBody["rankings"]["1"]["competitor_rankings"][$i]["competitor"]["name"];
             $prizeMoney = $responseBody["rankings"]["1"]["competitor_rankings"][$i]["prize_money"];
             
